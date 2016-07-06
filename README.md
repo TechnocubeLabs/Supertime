@@ -15,7 +15,7 @@ Here are the currently supported features:
 
 Installation procedure:
 --------------------------------
-1. Download and install nodejs (https://nodejs.org/en/).
+1. Download and install [nodejs](https://nodejs.org/en/).
 2. Install sails. 
  	```$ sudo npm -g install sails```
 3. Install bower.
@@ -23,7 +23,7 @@ Installation procedure:
 4. Setup your database -  Create a username "myusername" with password "mypassword" in your mysql. Create a database named "supertime_db" and grant all priviledges on the new database to the newly created user "myusername". Alternatively, you can create your desired username, password and database in your mysql and change the configuration of the database of this application in
 	config/connections.js file.
 5. Install [redis](http://redis.io/download) for session storage. Follow the installation guide from the download page.
-6. Download the repository of this attendance system (https://github.com/TechnocubeOpenSource/supertime/archive/master.zip).
+6. Download the [SuperTime code repository](https://github.com/TechnocubeOpenSource/supertime/archive/master.zip) of this attendance system.
 7. Extract the downloaded file change your directory to the newly extracted folder.
 8. Install dependencies.
 	```$ npm install```
