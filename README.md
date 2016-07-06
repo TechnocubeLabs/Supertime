@@ -1,6 +1,6 @@
 # SuperTime #
 
-SuperTime is a general purpose attendance management system built using a sailsjs framework.
+SuperTime is a general purpose attendance management system built using a sails.js framework.
 
 ### Features ###
 
@@ -43,7 +43,7 @@ Please read carefully our [license](https://github.com/TechnocubeLabs/Supertime/
 
 ### Developer Guidelines ###
 
-SuperTime community welcomes your contribution. To make the process as seamless as possible. Go ahead and fork the project and make your changes. We encourage pull requests to discuss code changes. We ask you the following steps:
+SuperTime community welcomes your contribution. If you'd like to contribute, we ask you follow these steps:
 
 1. Fork the SuperTime repo.
 2. Create your feature branch (git checkout -b my-new-feature)
