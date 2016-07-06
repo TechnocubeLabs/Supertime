@@ -1,4 +1,4 @@
-# technocube_attendance
+# technocube-project-management-opensource-tool-supertime
 
 a [Sails](http://sailsjs.org) application
 
