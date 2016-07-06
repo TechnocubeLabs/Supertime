@@ -2,7 +2,7 @@
 
 SuperTime is a general purpose attendance management system built using a sailsjs framework.
 
-### Currently supported features: ###
+### Features ###
 
 1. User registration
 2. Login - login time recorded on login.
@@ -12,7 +12,7 @@ SuperTime is a general purpose attendance management system built using a sailsj
 6. Day-to-day task - user can pick work/task from task list. Once a task is pick from list, the task will be updated for the next day and the day to come until its completion.
 7. Report - user's work for today, attendance log, break log, task list and work log is generated in the report tab. An admin user can view this report for all users while a general user can view only his/her own data.
 
-### Installation procedure: ###
+### Installation procedure ###
 
 1. Download and install [nodejs](https://nodejs.org/en/).
 2. Install sails. 
@@ -52,7 +52,7 @@ SuperTime community welcomes your contribution. To make the process as seamless 
 5. Create new Pull Request
 
 ### Contact us ###
-We would love to hear your queries, feedback, suggestions, or anything else. Mail us at info@technocube.in 
+We would love to hear your queries, feedback, suggestions, or anything else. Mail us at [info@technocube.in](mailto:info@technocube.in) 
 
 
 A [TechnoCube](http://technocube.co/) initiative. We're proudly open! See more of our work [here](http://technocube.co/work.html). 
