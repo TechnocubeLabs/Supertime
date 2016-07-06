@@ -1,0 +1,24 @@
+<!-- index.ejs for login page -->
+
+
+<div ng-controller="loginCtrl" class="md-padding" ng-cloak>
+	<div layout="column" layout-align="center center">
+		<div class="md-whiteframe-z4" >
+			<form method="POST" action="/login" layout="column" layout-align="center center" class="md-padding login-wrapper">
+				<md-label class="md-padding">
+				<i class="glyphicon glyphicon-user"></i>
+				</md-label>
+				<md-input-container>
+  					<input type="text" ng-model="username" name="username" required placeholder="Username or Email">
+				</md-input-container>
+				<md-input-container>
+					<input name="password" placeholder="Password" type="password" required>
+				</md-input-container>
+				<input name="attendance_date" type="hidden" value="">
+				<input name="login_time" type="hidden" value="">
+				<md-button class="md-raised md-primary" type="submit" ng-click="validateRegistrationDetails()">Login</md-button>
+			</form>
+		</div>
+		<div class="md-padding"> <a href="/register">New user? Register</a></div>
+	</div>
+</div>

@@ -1,0 +1,212 @@
+<!-- index.ejs file for index page -->
+
+<div ng-controller="indexCtrl" layout="column" layout-align="center center" flex ng-cloak>
+    <md-tabs class="indexTabs" md-dynamic-height="" md-border-bottom="" md-center-tabs="true" class="ng-isolate-scope md-dynamic-height" layout-margin>
+        <md-tab label="Today's Todo list" layout="column">
+        <div class="md-padding">
+            <div layout="column" class="margin-top-20">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <th>Project</th>
+                        <th>Module</th>
+                        <th>Task Type</th>
+                        <th>Description</th>
+                        <th>Time Estimates</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                        <th>Actual Time</th>
+                        <th>Edit</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="temp in todos">
+                        <td>{{temp.project.project_name}}</td>
+                        <td>{{temp.task_name.task_name}}</td>
+                        <td>{{temp.task_type.name}}</td>
+                        <td>{{temp.description}}</td>
+                        <td>{{temp.estimatedDuration}}</td>
+                        <td class="status-select-box">
+                            <select class="form-control status-select-box" ng-model="statuses[temp.id]" ng-disabled="completed[index]">
+                              <option ng-repeat="temp in ['To do', 'WIP', 'Completed', 'Abort']" ng-value="temp">{{temp}}</option>
+                              
+                            </select>
+                        </td>
+                        <td class="priority-select-box">
+                            <select class="form-control priority-select-box" ng-model="priorities[temp.id]">
+                             <option ng-repeat="temp in ['High', 'Normal', 'Low']" ng-value="temp">    {{temp}}</option>
+                             </select>
+                        </td>
+
+                        <td>
+                            
+                      <div class="col-sm-6 col-xs-12 hr-input form-group remove-all-padding">
+                        
+                        <input type="number" class="form-control" name="hour" ng-model="hours[temp.id]" placeholder="Hr(s)">
+                      </div>
+                      <div class="col-sm-6 col-xs-12 form-group remove-all-padding">
+                        <input type="number" class="form-control" name="minute" ng-model="minutes[temp.id]" placeholder="Min(s)">
+                      </div>
+                      </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" ng-click="updateTodo(temp.id)">Update</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                
+                <div class="md-padding" style="height: 10px"></div>
+            </div>
+        </div>
+        </md-tab>
+        <md-tab label="Task backlog">
+            <md-content>
+            <div class="md-padding">
+                <div layout="column">
+                   <div class="col-sm-3 col-sm-offset-9 remove-all-padding" layout="row">
+                         <md-select flex ng-model="selectedStatuses" multiple placeholder="Add more filter" style="min-width:60px">
+                            <md-option ng-value="status" ng-repeat="status in ['To do', 'WIP', 'Completed', 'Abort']">{{status}}</md-option>
+                        </md-select>
+                        <div layout="column" layout-align="center">
+                            <md-button flex class="md-primary" ng-click="getTodoLists()" style="max-height:40px">add filter</md-button>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <th>Project</th>
+                            <th>Module</th>
+                            <th>Task Type</th>
+                            <th>Description</th>
+                            <th>Time Estimates</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Exp. DD</th>
+                            <th>Pick</th>
+                            <th>Edit/Delete</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="temp in todoLists">
+                                <td>{{temp.project.project_name}}</td>
+                                <td>{{temp.task_name.task_name}}</td>
+                                <td>{{temp.task_type.name}}</td>
+                                <td>{{temp.description}}</td>
+                                <td>{{temp.estimatedDuration}}</td>
+                                <td>{{temp.status}}</td>
+                                <td>{{temp.priority}}</td>
+                                <td>{{temp.expected_delivery_date}}</td>
+                                <td>
+                                    
+                                    <button type="button" class="btn btn-primary" ng-click="selectTodo(temp)" ng-disabled="temp.isSelected">Update</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-default" ng-click="editTask(temp)">Edit/Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>    
+            </md-content>
+        </md-tab>
+        <md-tab label="Create Task">
+            
+            <div class="md-padding create-task-wrapper">
+                <div layout="column" class="margin-top-20">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="col-sm-3 col-xs-12">
+                        <label class="control-label">Select Project</label>
+                        <select class="form-control" ng-model="project" ng-change="setProjectProperty()" ng-options="temp.project_name for temp in projects track by temp.id">                          
+                        </select>
+                        </div>
+                        <div class="col-sm-3 col-xs-12">
+                        <label class="control-label">Select Module</label>
+                        <select class="form-control" ng-model="task"  ng-change="fetchTaskType()" ng-options="temp.task_name for temp in tasks track by temp.id">                          
+                        </select>
+
+                        </div>
+                        <div class="col-sm-3 col-xs-12">
+                        <label class="control-label">Select Task type</label>
+                        <select class="form-control" ng-model="tasktype" ng-options="temp.name for temp in task_types track by temp.id">                          
+                        </select>
+                        </div>
+                        <div class="col-sm-3 col-xs-12" style="    margin-top: 25px;">
+
+                            <button type="button" class="btn btn-default clear-btn" ng-click="clearSelection()">Clear Selection</button>   
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12 margin-top-20">
+
+                        <div class="col-sm-12 col-xs-12">
+                        <label class="control-label">Describe your task here</label>
+                            <textarea type="text" rows="2" class="form-control" name="description" ng-model="description" placeholder="Task Description"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12 margin-top-20">
+                        <div class="col-sm-12 col-xs-12">
+                        <label class="control-label">Estimated time to complete task</label>
+                        </div>
+                            <div class="col-sm-3 col-xs-12>
+                                <input type="number" class="form-control" name="hour" ng-model="hour" placeholder="Hr(s)">
+                                <input type="number" class="form-control" name="hour" ng-model="hour" placeholder="Hr(s)">
+                            </div>
+                            <div class="col-sm-3 col-xs-12>
+                                <input type="number" class="form-control" name="minute" ng-model="minute" placeholder="Min(s)">
+                                <input type="number" class="form-control" name="minute" ng-model="minute" placeholder="Min(s)">
+                        </div>
+                        <div class="col-sm-12 col-xs-12 text-center margin-top-20">
+                         <md-button class="md-raised md-accent" ng-click="addList()">SUBMIT</md-button>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            
+        </md-tab>
+        <% if(user_role > 1) { %>
+            <md-tab label="Add Project/Module">
+                <md-content>
+                    <div layout="row">
+                        <% if(user_role > 1) { %>
+                        <div class="md-whiteframe-z4 layout-margin" layout="column">
+                            <h4>Add Project</h4>
+                            <md-input-container>
+                                <input type="text" name="project_name" ng-model="project_name" placeholder="Enter project name">
+                            </md-input-container>
+                            <md-button class="md-primary" ng-click="addProject()">submit</md-button>
+                        </div>
+                        <% } %>
+                        <div class="md-whiteframe-z4 layout-margin" layout="column" style="min-width:320px;">
+                            <h4>Add Module</h4>
+                            <md-select ng-model="project" placeholder="Select Project" ng-change="setProjectProperty()">
+                                <md-option ng-repeat="temp in projects" ng-value="temp">
+                                {{temp.project_name}}
+                                </md-option>
+                            </md-select>
+                            <md-input-container>
+                                <input type="text" name="task_name" ng-model="task_name" placeholder="Enter Module name">
+                            </md-input-container>
+                            <md-content layout="row">
+                                <md-datepicker ng-model="expected_deliver_date" md-placeholder="Delivery Date"> </md-datepicker>
+                            </md-content>
+                            <!-- <md-input-container>
+                                <md-select type="text" name="task_type" ng-model="task_type" placeholder="Select Task type">
+                                    <md-option ng-value="temp.id" ng-repeat="temp in task_types"> {{temp.name}} </md-option>
+                                </md-select>
+                            </md-input-container> -->
+                            <md-button class="md-primary" ng-click="addTask()">submit</md-button>
+                        </div>
+                        <!-- <div class="md-whiteframe-z4 layout-margin" layout="column">
+                            <h4>Add Task Type</h4>
+                            <md-input-container>
+                                <input type="text" name="task_type_name" ng-model="task_type_name" placeholder="Enter name for task type.">
+                            </md-input-container>
+                            <md-button class="md-primary" ng-click="addTaskType()">submit</md-button>
+                        </div> -->
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="All Tasks" >
+                <md-content>
+                <%- partial('../report/todos.ejs') -%>
+                </md-content>
+            </md-tab>
+        <% } %>
+    </md-tabs>
+</div>

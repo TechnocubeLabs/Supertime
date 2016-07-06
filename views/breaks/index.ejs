@@ -1,0 +1,49 @@
+<!-- index.ejs for break controller -->
+
+<div ng-controller="breakCtrl"  layout="column" layout-align="center center">
+	<div layout="column" flex>	
+		<div flex class="md-whiteframe-z4 md-margin">
+			<form method="POST" action="/breaks/startBreak">
+				<input type="hidden" name="start_time">
+				<input type="hidden" name="attendance_date">
+				<div layout="column" class="md-padding">
+					<md-label>Select Break Reason:</md-label>
+					<md-input-container>
+					<select name="reason" placeholder="Please dd select break reason." flex>
+						<option disabled selected>Please select break reason.</option>
+						<option value="Tea">Tea</option>
+						<option value="Lunch">Lunch</option>
+						<option value="Extra">Other</option>
+					</select>
+					</md-input-container>
+					<md-input-container >
+						<input type="textarea" name="comment" placeholder="comment">
+					</md-input-container>
+					<input type="submit" value="start" ng-click="setBreakData()" class="md-button md-primary">
+				</div>
+			</form>
+		</div>
+		<div  flex layout="column" layout-align="top center" class="md-whiteframe-z4 md-padding md-margin">
+			<div><h4>Today's breaks</h4></div>
+			<table style="border-collapse: collapse;">
+				<thead>
+					<th	style="border: 1px solid #000"> Reason </th>
+					<th	style="border: 1px solid #000"> Start Time</th>
+					<th	style="border: 1px solid #000"> End Time</th>
+					<th style="border:1px solid #000"> Comment</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="temp in breaks">
+						<td	style="border: 1px solid #000">{{temp.reason}}</td>
+						<td	style="border: 1px solid #000">{{temp.start_time}}</td>
+						<td	style="border: 1px solid #000">
+							{{temp.end_time}} 
+							<input type="button" ng-click="endbreak(temp.id)" ng-hide="temp.end_time" value="end break" class="md-button md-primary"> </td>
+						<td	style="border: 1px solid #000"></td>
+					</tr>
+				</tbody>
+				
+			</table>
+		</div>
+	</div>
+</div>

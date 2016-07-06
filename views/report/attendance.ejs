@@ -1,0 +1,34 @@
+<!-- attendance.ejs -->
+
+<div ng-controller="reportAttendanceCtrl">
+	<div layout="row" layout-align="center" layout-sm="column" layout-xs="column" layout-md="column">
+		<div layout="row" layout-align="center center" class="md-padding">
+			<md-select ng-model="status.user.username" placeholder="Filter by User" >
+				<md-option ng-value="temp" ng-repeat="temp in users" >{{temp}}</md-option>
+			</md-select>
+			<md-button ng-click="clearFilter()" class="md-primary">clear</md-button>
+		</div>
+	</div>
+	<table>
+		<thead>
+			<th>username</th>
+			<th>attendance date</th>
+			<th>login time</th>
+			<th>logout time</th>
+			<th>login duration</th>
+			<th>break duration</th>
+			<th>effective login duration</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="temp in attendance | filter:status:strict">
+				<td class="md-padding">{{temp.user.username}}</td>
+				<td class="md-padding">{{temp.attendance_date}}</td>
+				<td class="md-padding">{{temp.login_time}}</td>
+				<td class="md-padding">{{temp.logout_time}}</td>
+				<td class="md-padding">{{temp.total_login_duration}}</td>
+				<td class="md-padding">{{temp.break_duration}}</td>
+				<td class="md-padding">{{temp.effective_login_duration}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

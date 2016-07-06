@@ -1,0 +1,56 @@
+<md-dialog aria-label="Mango (Fruit)" ng-cloak>
+    <div class="md-padding md-whiteframe-z4" layout-margin>
+        <div flex layout="row">
+            <div layout="column" class="md-padding">
+                <span>Project:</span>
+                <md-select ng-model="project" placeholder="Select Project" ng-change="setProjectProperty()">
+                    <md-option ng-repeat="temp in projects" ng-value="temp">{{temp.project_name}}</md-option>
+                </md-select>
+            </div>
+            <div layout="column" class="md-padding">
+                <span>Module:</span>
+                <md-select ng-model="task" placeholder="Select module" ng-change="fetchTaskType()">
+                    <md-option ng-repeat="temp in tasks" ng-value="temp">{{temp.task_name}}</md-option>
+                </md-select>
+            </div>
+            <div layout="column" class="md-padding">
+                <span>Task type:</span>
+                <md-select ng-model="tasktype" placeholder="Select task type">
+                    <md-option ng-repeat="temp in task_types" ng-value="temp">{{temp.name}}</md-option>
+                </md-select>
+            </div>
+        </div>
+        <div layout="row">
+            <md-select ng-model="status" placeholder="status">
+                <md-option ng-repeat="temp in ['To do', 'WIP', 'Completed', 'Abort']" ng-value="temp">
+                    {{temp}}
+                </md-option>
+            </md-select>
+            &nbsp &nbsp &nbsp &nbsp
+            <md-select ng-model="priority" ng-disabled="true" placeholder="Priority">
+                <md-option ng-repeat="temp in ['High', 'Normal', 'Low']" ng-value="temp">
+                    {{temp}}
+                </md-option>
+            </md-select>
+        </div>
+        <div layout="column">
+            <md-input-container>
+                <textarea class="md-padding" type="textarea" name="description" ng-model="description" placeholder="task description"> </textarea>
+            </md-input-container>
+            <span style="margin-top:-19px"> Time Estimates: </span>
+            <div layout="row">
+                <md-input-container>
+                    <input type="number" name="hour" ng-model="hour" placeholder="Hour(s)">
+                </md-input-container>
+                <md-input-container>
+                    <input type="number" name="minute" ng-model="minute" placeholder="Minute(s)">
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="row">
+            <md-button class="md-primary" ng-click="deleteTask()">delete</md-button>
+            <md-button class="md-primary" ng-click="cancelDialog()">cancel</md-button>
+            <md-button class="md-primary" ng-click="updateTask()">update</md-button>
+        </div>
+    </div>
+</md-dialog>

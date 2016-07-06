@@ -1,0 +1,33 @@
+<!-- break.ejs for break report -->
+
+<div ng-controller="reportBreakCtrl" layout="column">
+	<div layout="row" layout-align="center" layout-sm="column" layout-xs="column" layout-md="column">
+		<div layout="row" layout-align="center center" class="md-padding">
+			<md-select ng-model="status.user" placeholder="Filter by User" >
+				<md-option ng-value="temp" ng-repeat="temp in users" >{{temp}}</md-option>
+			</md-select>
+			<md-button ng-click="clearFilter()" class="md-primary">clear</md-button>
+		</div>
+	</div>
+	<table>
+		<thead>
+			<th>date</th>
+			<th>name</th>
+			<th>start time</th>
+			<th>end time</th>
+			<th>reason</th>
+			<th>duration</th>
+			<th>comment(if any)</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="temp in breaks | filter:status:strict">
+				<td class="md-padding">{{temp.attendance_date}}</td>
+				<td class="md-padding">{{temp.user}}</td>
+				<td class="md-padding">{{temp.start_time}}</td>
+				<td class="md-padding">{{temp.end_time}}</td>
+				<td class="md-padding">{{temp.reason}}</td>
+				<td class="md-padding">{{temp.duration}}</td>
+				<td class="md-padding">{{temp.comments}}</td>
+		</tbody>
+	</table>
+</div>

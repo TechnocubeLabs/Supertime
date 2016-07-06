@@ -1,0 +1,63 @@
+<!-- todos.ejs -->
+
+<div ng-controller="reportTodosCtrl" layout="column">
+	<div layout="row" layout-align="center" layout-sm="column" layout-xs="column" layout-md="column">
+		<div layout="row" layout-align="center center" class="md-padding">
+			<md-select ng-model="status.project.project_name" placeholder="Filter by Project" >
+				<md-option ng-value="temp.project_name" ng-repeat="temp in projects" >{{temp.project_name}}</md-option>
+			</md-select>
+			<md-button ng-click="clearFilter('project','project_name')" class="md-primary">clear</md-button>
+		</div>
+		<div layout="row" layout-align="center center" class="md-padding">
+			<md-select ng-model="status.task_name.task_name" placeholder="Filter by Module" >
+				<md-option ng-value="temp" ng-repeat="temp in tasks" >{{temp}}</md-option>
+			</md-select>
+			<md-button ng-click="clearFilter('task_name','task_name')" class="md-primary">clear</md-button>
+		</div>	
+		<div layout="row" layout-align="center center" class="md-padding">
+			<md-select ng-model="status.status" placeholder="Filter by Status" >
+				<md-option ng-value="temp" ng-repeat="temp in ['To Do', 'WIP', 'Completed', 'Abort']" >{{temp}}</md-option>
+			</md-select>
+			<md-button ng-click="clearFilter('status', 0)" class="md-primary">clear</md-button>
+		</div>
+		<div layout="row" layout-align="center center" class="md-padding">
+			<md-select ng-model="status.user.getName" placeholder="Filter by User" >
+				<md-option ng-value="temp" ng-repeat="temp in userlists" >{{temp}}</md-option>
+			</md-select>
+			<md-button ng-click="clearFilter('user','getName')" class="md-primary">clear</md-button>
+		</div>
+		<div layout="row" layout-align="center center" class="md-padding">
+			<md-button ng-click="clearFilter(0,0)" class="md-primary" style="max-height:40px;">clear all</md-button>
+		</div>
+	</div>
+	<table style="border-collapse: collapse;">
+		<thead>
+			<th>username</th>
+			<th>project</th>
+			<th>task</th>
+			<th>todo</th>
+			<th>status</th>
+			<th>priority</th>
+			<th>estimated time</th>
+			<th>actual time</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="temp in alltodosreport | filter:status:strict">
+				<td class="md-padding">{{temp.user.getName}}</td>
+				<td class="md-padding">{{temp.project.project_name}}</td>
+				<td class="md-padding">{{temp.task_name.task_name}}</td>
+				<td class="md-padding">{{temp.description}}</td>
+				<td class="md-padding">{{temp.status}}</td>
+				<td class="md-padding">
+					<md-select ng-model="priorities[temp.id]" >
+                        <md-option ng-repeat="temp in ['High', 'Normal', 'Low']" ng-value="temp">
+                            {{temp}}
+                        </md-option>
+                    </md-select>
+					<md-button ng-click="changePriority(temp.id)">update</md-button>
+				</td>
+				<td class="md-padding">{{temp.estimated_time}}</td>
+				<td class="md-padding">{{temp.actual_time}}</td>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,19 @@
+<!-- index.ejs for register module -->
+
+<div class="md-padding" layout="column" layout-align="center center">
+	<div class="md-whiteframe-z4">
+		<form class="md-padding" method="POST" action="/register/signup" onsubmit="validateRegistrationDetails()" layout="column">
+			<span class="md-padding"><b> Please fill in the form below:</b></span>
+			<md-input-container>
+				<input class="md-padding" name="username" required placeholder="Username" type="text">
+			</md-input-container>
+			<md-input-container>
+				<input class="md-padding" name="email" required placeholder="Email" type="text">
+			</md-input-container>
+			<md-input-container>
+				<input class="md-padding" name="password" required placeholder="Password" type="password">
+			</md-input-container>
+			<input class="md-button md-primary" type="submit" value='submit'>
+		</form>
+	</div>
+</div>

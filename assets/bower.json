@@ -1,0 +1,24 @@
+{
+  "name": "technocube_attendance",
+  "authors": [
+    "lbthomte <lianboi.thomte2technocube.in>"
+  ],
+  "description": "technocube attendance record front end js dependencies",
+  "main": "",
+  "license": "MIT",
+  "homepage": "technocube.co",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "angular": "angularjs#^1.5.5",
+    "angular-material": "^1.0.8",
+    "moment": "^2.13.0",
+    "bootstrap": "^3.3.6"
+  }
+}

@@ -1,0 +1,34 @@
+<!-- index.ejs for report view -->
+<div layout="column" layout-align="center" ng-controller="reportIndexCtrl">
+    <div layout="row" layout-align="center">
+        <md-button onclick="window.location.assign('/report/?page=livereport')">today's</md-button>
+        <md-button onclick="window.location.assign('/report/?page=attendance')">attendance</md-button>
+        <md-button onclick="window.location.assign('/report/?page=breaks')">breaks</md-button>
+        <md-button onclick="window.location.assign('/report/?page=todos')">todo(s)</md-button>
+        <md-button onclick="window.location.assign('/report/?page=work_log')">work log</md-button>
+    </div>
+    <% if(page == 'work_log') {%>
+            <div layout="row" layout-align="center">
+                <md-datepicker ng-model="begin_date" md-max-date="maxdate_begin" md-min-date="mindate_begin" md-placeholder="From Date"></md-datepicker>
+                <md-datepicker ng-model="end_date" md-max-date="maxdate_end" md-min-date="mindate_end" md-placeholder="To Date"></md-datepicker>
+                <md-button ng-click="applyDateFilter('work_log')" class="md-primary">apply</md-button>
+            </div>
+    <% } %>
+    <div layout="column" layout-align="center center">
+        <% if(page == 'livereport') {%>
+            <%- partial('livereport.ejs') -%>
+        <% } %>
+        <% if(page == 'attendance') {%>
+            <%- partial('attendance.ejs') -%>
+        <% } %>
+        <% if(page == 'todos') {%>
+            <%- partial('todos.ejs') -%>
+        <% } %>
+        <% if(page == 'work_log') {%>
+            <%- partial('work_log.ejs') -%>
+        <% } %>
+        <% if(page == 'breaks') {%>
+            <%- partial('break.ejs') -%>
+        <% } %>
+    </div>
+</div>

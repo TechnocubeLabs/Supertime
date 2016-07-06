@@ -1,0 +1,119 @@
+/*
+*
+*
+* CSS for technocube attendance login page.
+*
+*/
+
+
+/* Helper CSS */
+
+.pointer-cursor {
+    cursor: pointer;
+}
+
+.remove-all-margin {
+    margin: 0px !important;
+}
+
+.remove-all-padding {
+    padding: 0px !important;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+
+/*//*/
+
+.interactive {
+    cursor: default;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table thead th {
+    border: 1px solid #000;
+}
+
+table tbody tr td {
+    border: 1px solid #000;
+}
+
+.navbar-right .glyphicon {
+    top: 3px !important;
+    right: 3px !important;
+}
+
+.navbar-inverse {
+    border-radius: 0px !important;
+}
+
+.glyphicon-user {
+    font-size: 55px;
+    color: #999;
+}
+
+.login-wrapper md-input-container {
+    width: 100%;
+}
+
+.form-control {
+    border-radius: 0px !important;
+}
+
+md-pagination-wrapper.md-center-tabs {
+    transform: translate3d(0px, 0px, 0px) !important;
+}
+
+.login-wrapper {
+    width: 340px;
+}
+
+.status-select-box .form-control {
+    width: 117px;
+}
+
+.priority-select-box .form-control {
+    width: 103px;
+}
+
+.hr-input .form-control {
+    width: 100px;
+}
+
+.indexTabs {
+    min-width: 100%;
+    min-height: -webkit-calc(100vh - 100px) !important;
+    min-height: -moz-calc(100vh - 100px) !important;
+}
+
+.background-color-main {
+    background-color: #E5E5E5;
+}
+
+.create-task-wrapper {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.clear-btn {
+    width: 100%;
+}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {
+    .create-task-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 480px) {}
+
+@media (max-width: 320px) {}
