@@ -35,3 +35,19 @@ Installation procedure:
 
 By default, this application listens to PORT 3040 on your local machine. You can change the port settings in config/local.js file or lift sails with the port argument, like
 	```$ sails lift --port PORT_NUMBER ```
+
+License
+------------------------------
+SuperTime is licensed under [Apache v2.0](https://github.com/TechnocubeLabs/Supertime/blob/master/LICENSE). Every code patch accepted in SuperTime codebase is licensed under [Apache v2.0](https://github.com/TechnocubeLabs/Supertime/blob/master/LICENSE). You must be careful to not include any code that can not be licensed under this license.
+
+Please read carefully our [license](https://github.com/TechnocubeLabs/Supertime/blob/master/LICENSE) and ask us if you have any questions.
+
+Developer Guidelines
+------------------------------
+SuperTime community welcomes your contribution. To make the process as seamless as possible. Go ahead and fork the project and make your changes. We encourage pull requests to discuss code changes. We ask the following steps:
+
+1. Fork it
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
