@@ -22,7 +22,7 @@ SuperTime is a general purpose attendance management system built using a sailsj
 4. Setup your database -  Create a username "myusername" with password "mypassword" in your mysql. Create a database named "supertime_db" and grant all priviledges on the new database to the newly created user "myusername". Alternatively, you can create your desired username, password and database in your mysql and change the configuration of the database of this application in
 	config/connections.js file.
 5. Install [redis](http://redis.io/download) for session storage. Follow the installation guide from the download page.
-6. Download the [SuperTime code repository](https://github.com/TechnocubeOpenSource/supertime/archive/master.zip) of this attendance system.
+6. Download the [SuperTime code repository](https://github.com/TechnocubeOpenSource/supertime/archive/master.zip).
 7. Extract the downloaded file change your directory to the newly extracted folder.
 8. Install dependencies.
 	```$ npm install```
@@ -43,10 +43,16 @@ Please read carefully our [license](https://github.com/TechnocubeLabs/Supertime/
 
 ### Developer Guidelines ###
 
-SuperTime community welcomes your contribution. To make the process as seamless as possible. Go ahead and fork the project and make your changes. We encourage pull requests to discuss code changes. We ask the following steps:
+SuperTime community welcomes your contribution. To make the process as seamless as possible. Go ahead and fork the project and make your changes. We encourage pull requests to discuss code changes. We ask you the following steps:
 
 1. Fork the SuperTime repo.
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
 5. Create new Pull Request
+
+### Contact us ###
+We would love to hear your queries, feedback, suggestions, or anything else. Mail us at info@technocube.in 
+
+
+A [TechnoCube](http://technocube.co/) initiative. We're proudly open! See more of our work [here](http://technocube.co/work.html). 
