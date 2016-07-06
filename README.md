@@ -35,13 +35,13 @@ SuperTime is a general purpose attendance management system built using a sailsj
 By default, this application listens to PORT 3040 on your local machine. You can change the port settings in config/local.js file or lift sails with the port argument, like
 	```$ sails lift --port PORT_NUMBER ```
 
-### License ### 
+### License ###
 
 SuperTime is licensed under [Apache v2.0](https://github.com/TechnocubeLabs/Supertime/blob/master/LICENSE). Every code patch accepted in SuperTime codebase is licensed under [Apache v2.0](https://github.com/TechnocubeLabs/Supertime/blob/master/LICENSE). You must be careful to not include any code that can not be licensed under this license.
 
 Please read carefully our [license](https://github.com/TechnocubeLabs/Supertime/blob/master/LICENSE) and ask us if you have any questions.
 
-### Developer Guidelines ### 
+### Developer Guidelines ###
 
 SuperTime community welcomes your contribution. To make the process as seamless as possible. Go ahead and fork the project and make your changes. We encourage pull requests to discuss code changes. We ask the following steps:
 
